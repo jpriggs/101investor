@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  //h1= title
+  //p Welcome to #{title}
+  div.title-box
+    h1.the-word The
+    svg.title-svg
+        rect(class='first-one one')
+        circle(class='zero')
+        rect(class='second-one one')
+    h1.investor-word Investor
+  div.login-box
+    form(action='/login' method='POST')
+        div.form-group
+            p.form-label Email
+            input.form-control.form-input(type='text' id='email' placeholder='email' name='email')
+        div.form-group
+            p.form-label Password
+            input.form-control.form-input(type='password' id='password' placeholder='password' name='password')
+        button.btn.btn-primary.login-button(type='submit') Log In

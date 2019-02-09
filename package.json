@@ -1,0 +1,49 @@
+{
+  "name": "the101investor",
+  "version": "0.1.0",
+  "description": "A website to teach stock trading",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jpriggs/the101investor.git"
+  },
+  "author": "Jason Rigdon <jriggscoding@gmail.com>(https://jriggs-portfolio.herokuapp.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jpriggs/the101investor/issues"
+  },
+  "homepage": "https://github.com/jpriggs/the101investor#readme",
+  "dependencies": {
+    "autoprefixer": "^9.4.7",
+    "cookie-parser": "^1.4.3",
+    "cssnano": "^4.1.8",
+    "debug": "^2.6.9",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.3.1",
+    "http-errors": "^1.6.3",
+    "moment": "^2.24.0",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.7",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
+    "pug": "^2.0.0-beta11"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "latest",
+    "gulp-coffee": "latest",
+    "gulp-concat": "latest",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-pug": "latest",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "latest",
+    "gulp-uglify": "latest",
+    "gulp-util": "latest"
+  }
+}
