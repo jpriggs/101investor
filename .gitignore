@@ -71,3 +71,6 @@ package-lock.json
 
 # bin folder
 bin/
+
+# font folder
+/public/fonts

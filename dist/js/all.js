@@ -1,1 +1,1 @@
-var name="Google";console.log("Hello world"),console.log("Hello "+name);
+window.onload=function(){var t=document.getElementById("street").textContent;console.log(t)};
