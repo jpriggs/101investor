@@ -1,9 +1,21 @@
-window.onload = function () {
+$(document).ready(function () {
+
+    //Curve "continue" text
+    var circleType = new CircleType(document.getElementById('login-header-text'));
+    circleType.radius(185).dir(-1);
+
+    //Allow background image a little loading time before elements load
+    $('#title-box, #login-header, #login-wheel, #footer-container').delay(1000).fadeTo(500, 1.0);
+
+    //Set audio sound
+    var shockSound = new Audio('/public/audio/buzz.wav');
 
     //Set initial attributes and values to element
     var textToColorize = 'Street';
-    setInitialLetterColor(textToColorize);
-
+    var currColor = setInitialLetterColor(textToColorize);
+    var footerName = document.getElementById('footer-link');
+    footerName.style.color = currColor;
+    
     //Get child node
     var children = document.getElementById('street').childNodes;
     var node = children[0];
@@ -28,7 +40,7 @@ window.onload = function () {
         var outerCounter = 0;
 
         var timer = setInterval(function () {
-            
+
             //Allow one global interval to pass before executing flickering
             if (outerCounter > 0) {
                 var innerCounter = 0;
@@ -38,13 +50,17 @@ window.onload = function () {
                 //Start flickering timer
                 var innerTimer = setInterval(function () {
 
+                    //Play sound
+                    //shockSound.play();
+
                     //Get new random color if current color state is gray on new set interval
                     if (node.style.color == 'rgb(128, 128, 128)' && innerCounter === 0) {
                         originalColor = getRandomColor();
                     }
 
-                    //Call flickering effect
-                    flickerText(node, originalColor);
+                    //Call flickering effect and play sound effect
+                    flickerElements(node, originalColor);
+
 
                     //Increment and check if all flickers have gone off
                     innerCounter++
@@ -52,9 +68,9 @@ window.onload = function () {
                         clearInterval(innerTimer);
                     }
                 }, flickerTimer);
-               
+
             }
-            
+
             outerCounter++;
             //End current global event timer to reset and call again
             if (outerCounter == 2) {
@@ -65,7 +81,7 @@ window.onload = function () {
 
     }
     startGlobalInterval();
-}
+});
 
 //Creates and appends a "P" element with a stylized color and shadow
 function setInitialLetterColor(word) {
@@ -78,10 +94,22 @@ function setInitialLetterColor(word) {
     node.style.textShadow = `3px 3px 3px #191919, 5px 5px 30px ${textColor}`;
     node.textContent = word;
     document.getElementById('street').appendChild(node);
+
+    return textColor;
 }
 
 //Toggles the color of neon effect on "Street" word
-function flickerText(element, color) {
+function flickerElements(element, color) {
+    var footerSignage = document.getElementById('footer-link');
+
+    if (footerSignage.style.color === 'rgb(128, 128, 128)') {
+        footerSignage.style.color = color;
+        footerSignage.style.textShadow = `3px 3px 3px #191919, 5px 5px 30px ${color}`;
+    }
+    else {
+        footerSignage.style.color = 'rgb(128, 128, 128)';
+        footerSignage.style.textShadow = '3px 3px 3px #191919';
+    }
 
     if (element.style.color === 'rgb(128, 128, 128)') {
         element.style.color = color;
@@ -91,7 +119,7 @@ function flickerText(element, color) {
         element.style.color = 'rgb(128, 128, 128)';
         element.style.textShadow = '3px 3px 3px #191919';
     }
-    
+
 }
 
 //Random number generator
@@ -115,4 +143,3 @@ function getRandomColor() {
 
     return hexColors[randIndex];
 }
-

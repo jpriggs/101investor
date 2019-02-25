@@ -1,44 +1,86 @@
-@import url('https://fonts.googleapis.com/css?family=Special+Elite');
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes');
+@import url('https://fonts.googleapis.com/css?family=Righteous');
 @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
-@import url('https://fonts.googleapis.com/css?family=Monoton');
-
-@font-face {
-    font-family: 'serial-publication';
-    src: url('/public/fonts/SerialPublicationDEMO.ttf') format('truetype');
-}
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 @font-face {
     font-family: 'neon-glow';
     src: url('/public/fonts/neon-glow.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'paint-brush';
+    src: url('/public/fonts/blowbrush.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'stencil';
+    src: url('/public/fonts/Baron-Kuffner.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'google-font';
+    src: url('/public/fonts/futura-medium-bt.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'facebook-font';
+    src: url('/public/fonts/klavika-bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'github-font';
+    src: url('/public/fonts/inter-medium.otf') format('opentype');
+}
+
+@mixin user-select($property) {
+    -webkit-touch-callout: $property; /* iOS Safari */
+    -webkit-user-select: $property; /* Safari */
+    -moz-user-select: $property; /* Firefox */
+    -ms-user-select: $property; /* Internet Explorer/Edge */
+    user-select: $property; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
 body {
-    padding: 50px;
-    background-color: #ffffff !important;
-    background-image: url("https://www.transparenttextures.com/patterns/wall-4-light.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+    height: 100vh;
+}
+
+.background-container {
+    background-image: url('/public/images/yeshi-kangrang-338592-unsplash-min.jpg');
+    height: 100vh;
+    width: 100vw;
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    filter: contrast(130%);
 }
 
 .title-box {
     background-color: transparent;
     height: 300px;
     width: 500px;
+    display: none;
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    opacity: 0.0;
 }
+
 .the-word {
     font-family: 'Great Vibes', cursive;
-    font-size: 92px;
-    color: #191919;
+    font-size: 100px;
+    color: #ffffff;
     text-align: left;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     position: absolute;
-    top: 10px;
-    left: -10px;
+    top: 15px;
+    left: -50px;
     transform: rotate(-30deg);
-    opacity: 0.8;
+    opacity: 0.7;
+    @include user-select(none);
 }
+
 .the-word:after {
     content: "";
     position: absolute;
@@ -46,10 +88,11 @@ body {
     left: -2px;
     height: 25px;
     width: 160px;
-    border: 4px solid #191919;
-    border-color: #191919 transparent transparent transparent;
+    border: 4px solid #ffffff;
+    border-color: #ffffff transparent transparent transparent;
     border-radius: 50%;
 }
+
 .street-word {
     font-family: 'neon-glow';
     font-size: 170px;
@@ -57,96 +100,388 @@ body {
     top: 20px;
     left: -25px;
     transform: rotate(-20deg);
-    filter: saturate(800%);
+    filter: saturate(600%);
     opacity: 1.0;
+    @include user-select(none);
 }
 .investor-word {
-    font-family: 'serial-publication';
-    color: #191919;
-    font-size: 84px;
+    font-family: 'stencil';
+    color: #ffffff;
+    font-size: 110px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     position: absolute;
     top: 210px;
-    left: 240px;
-    opacity: 0.8;
+    left: 200px;
+    opacity: 0.7;
+    @include user-select(none);
 }
-.investor-word:before {
-    content: "";
-    position: absolute;
-    top: 8px;
-    left: -5px;
-    height: 10px;
-    width: 260px;
-    border: 5px solid #191919;
-    border-color: #191919 transparent transparent transparent;
-}
-.investor-word:after {
-    content: "";
-    position: absolute;
-    top: 75px;
-    left: -5px;
-    height: 10px;
-    width: 260px;
-    border: 5px solid #191919;
-    border-color: transparent transparent #191919 transparent;
-}
-.title-svg {
-    height: 200px;
-    width: 400px;
-    position: absolute;
-    top: 75px;
-    left: 50px;
-    opacity: 0.5;
-}
-.one {
-    height: 150px;
-    width: 45px;
-    rx: 25;
-    ry: 25;
-    stroke: black;
-    stroke-width: 2;
-    fill: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
-    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
-}
-.first-one {
-    x: 50;
-    y: 2;
-    fill: #bae1ff;
-}
-.second-one {
-    x: 300;
-    y: 2;
-    fill: #ffb3ba;
-}
-.zero {
-    cx: 200;
-    cy: 77;
-    r: 75;
-    fill: #baffc9;
-    stroke: black;
-    stroke-width: 2;
-}
-.login-box {
+
+.login-wheel {
     background-color: transparent;
-    height: 400px;
-    width: 300px;
+    height: 350px;
+    width: 400px;
     border-radius: 25px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    opacity: 0.0;
+}
+
+.login-header {
+    margin-top: -55px;
+    display: block;
+    opacity: 0.0;
+}
+#login-header-text {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 32px;
+    color: #FFFFFF;
+    text-align: center;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    @include user-select(none);
+}
+
+.login-button {
+    color: #ffffff !important;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    height: 140px;
+    width: 140px;
+    margin-top: 5px;
+    position: absolute;
+    transform: rotate(45deg);
+    opacity: 1.0;
+}
+.login-button:hover {
+    text-shadow: 0px 0px 20px white;
+    opacity: 1.0;
+}
+
+.username-button {
+    top: 0px;
+    left: 130px;
+    border-radius: 100% 0 0 0 !important;
+    filter: grayscale(100%);
+
+    i {
+        margin-top: 20px;
+        margin-left: 70px;
+    }
+
+    p {
+        font-family: 'Righteous', cursive;
+        font-size: 26px;
+        margin-top: 30px;
+        margin-bottom: -20px;
+        margin-left: -10px;
+    }
+}
+.username-button:active {
+    background-color: lighten(#009900, 15%) !important;
+    filter: grayscale(0%);
+}
+.username-button:hover {
+    box-shadow: -2px -2px 5px 5px lighten(#009900, 20%);
+    filter: grayscale(0%);
+}
+
+.google-button {
+    font-family: google-font;
+    top: 108px;
+    left: 237px;
+    border-radius: 0 100% 0 0 !important;
+    filter: grayscale(100%);
+
+    i {
+        margin-top: 30px;
+        margin-left: -80px;
+    }
+
+    p {
+        font-size: 32px;
+        transform: rotate(45deg);
+        margin-top: 25px;
+        margin-bottom: -20px;
+        margin-left: 10px;
+    }
+}
+.google-button:active {
+    background-color: lighten(#9D1027, 15%) !important;
+    filter: grayscale(0%);
+}
+.google-button:hover {
+    box-shadow: 2px -2px 5px 5px lighten(#9D1027, 30%);
+    filter: grayscale(0%);
+}
+
+.facebook-button {
+    font-family: facebook-font;
+    top: 108px;
+    left: 23px;
+    border-radius: 0 0 0 100% !important;
+    filter: grayscale(100%);
+
+    i {
+        margin-top: -10px;
+        margin-bottom: 20px;
+        margin-left: 80px;
+    }
+
+    p {
+        font-size: 30px;
+        transform: rotate(-135deg);
+        margin-top: -15px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+.facebook-button:active {
+    background-color: lighten(#02019B, 15%) !important;
+    filter: grayscale(0%);
+}
+.facebook-button:hover {
+    box-shadow: -2px 2px 5px 5px lighten(#02019B, 20%);
+    filter: grayscale(0%);
+}
+
+.github-button {
+    font-family: github-font;
+    top: 213px;
+    left: 130px;
+    border-radius: 0 0 100% 0 !important;
+    filter: grayscale(100%);
+
+    i {
+        margin-bottom: 65px;
+        margin-left: -60px;
+        margin-right: 20px;
+    }
+
+    p {
+        font-size: 28px;
+        margin-top: -60px;
+        margin-bottom: 30px;
+        margin-left: 20px;
+        margin-right: 0px;
+    }
+}
+.github-button:active {
+    background-color: lighten(#191919, 5%) !important;
+    filter: grayscale(0%);
+}
+.github-button:hover {
+    box-shadow: 2px 2px 5px 5px lighten(#191919, 20%);
+    filter: grayscale(0%);
+}
+
+.fa-icon {
+    font-size: 42px;
+    transform: rotate(-45deg);
+}
+.button-text {
+    transform: rotate(-45deg);
+}
+
+.username-box {
+    background-color: transparent;
+    position: absolute;
+    height: 350px;
+    width: 300px;
+    border-radius: 15px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blurbox {
+    background: inherit;
+    background-attachment: fixed;
+    position: relative;
+    height: 460px;
+    width: 300px;
+    border-radius: 15px;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
 }
+
+.blurbox:before {
+    content: '';
+    background: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .01);
+    filter: blur(10px);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    @include user-select(none);
+
+    i {
+        color: #191919;
+        font-size: 32px;
+        opacity: 0.4;
+    }
+
+    i:hover {
+        color: #CA1D24;
+        opacity: 1.0;
+    }
+}
+
 .form-label {
-    font-family: 'Special Elite', cursive;
-    font-size: 36px;
+    font-family: 'Righteous', cursive;
+    font-size: 28px;
+    color: #ffffff;
     text-align: left;
-    margin: 10px 0px -10px 0px;
-    opacity: 0.7;
+    position: absolute;
+    margin-top: -15px;
+    margin-bottom: -5px;
+    margin-left: 8px;
+    opacity: 0.9;
+    z-index: 1;
+    @include user-select(none);
 }
-.btn-primary {
-    font-family: 'Great Vibes', cursive;
-    font-size: 22px !important;
-    width: 300px;
-    margin-top: 25px;
+.form-input {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #191919 !important;
+    width: 284px !important;
+    position: absolute;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    z-index: 1;
 }
-a {
-  color: #00B7FF;
+.error-msg {
+    font-size: 16px;
+    font-weight: bold;
+    color: red;
+    position: absolute;
+    left: 8px;
+    @include user-select(none);
+}
+
+.user-label {
+    top: 0px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+#username {
+    top: 20px;
+}
+.user-error {
+    top: 55px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.pass-label {
+    top: 85px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+#password {
+    top: 105px;
+}
+#password-confirm {
+    top: 150px;
+}
+.password-error {
+    top: 185px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.email-label {
+    top: 215px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+#email {
+    top: 235px;
+}
+#email-confirm {
+    top: 280px;
+}
+.email-error {
+    top: 315px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+.user-login-btn {
+    position: absolute;
+    top: 340px;
+    left: 8px;
+    width: 284px !important;
+}
+
+.user-register-btn {
+    position: absolute;
+    top: 385px;
+    left: 8px;
+    width: 284px !important;
+}
+.user-cancel-btn {
+    position: absolute;
+    top: 385px;
+    left: 8px;
+    width: 284px !important;
+}
+.footer-container {
+    background-color: transparent;
+    position: relative;
+    display: none;
+    opacity: 1.0;
+}
+
+.credit-footer {
+    position: fixed;
+    bottom: 0px;
+    left: 20px;
+    opacity: 1.0;
+    @include user-select(none);
+
+    p {
+        font-family: paint-brush;
+        font-size: 16px;
+        color: #ffffff;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+
+    a {
+        font-family: 'Righteous', cursive;
+        font-size: 16px;
+        color: gray;
+        text-decoration: none !important;
+        text-shadow: 0.5px 0.5px;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    }
+}
+
+.dev-footer {
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    @include user-select(none);
+
+    p {
+        font-family: paint-brush;
+        font-size: 18px;
+        color: #ffffff;
+    }
+
+    a {
+        color: gray;
+        font-family: neon-glow;
+        font-size: 18px;
+        text-decoration: none !important;
+        text-shadow: 0.5px 0.5px;
+        filter: saturate(600%);
+    }
+
+    a:hover {
+        color: rgb(128, 128, 128);
+    }
 }

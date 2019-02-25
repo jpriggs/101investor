@@ -1,22 +1,54 @@
 extends layout
 
 block content
-  //h1= title
-  //p Welcome to #{title}
-  div.title-box
-    h1.the-word The
-    //svg.title-svg
-        rect(class='first-one one')
-        circle(class='zero')
-        rect(class='second-one one')
-    div#street.street-word
-    h1.investor-word Investor
-  div.login-box
-    form(action='/login' method='POST')
-        div.form-group
-            p.form-label Email
-            input.form-control.form-input(type='text' id='email' placeholder='email' name='email')
-        div.form-group
-            p.form-label Password
-            input.form-control.form-input(type='password' id='password' placeholder='password' name='password')
-        button.btn.btn-primary.login-button(type='submit') Log In
+    //h1= title
+    //p Welcome to #{title}
+    div.background-container
+        div.title-box#title-box
+            h1.the-word The
+            div#street.street-word
+            h1.investor-word Investor
+        div.login-wheel#login-wheel
+            button.btn.btn-outline-success.login-button.username-button#username-button(type='submit', onclick='blur()')
+                p.button-text Username
+                i.fas.fa-user.fa-icon
+            button.btn.btn-outline-danger.login-button.google-button#google-button(type='submit', onclick='blur()')
+                p.button-text  Google
+                i.fab.fa-google.fa-icon
+            button.btn.btn-outline-primary.login-button.facebook-button#facebook-button(type='submit', onclick='blur()') 
+                i.fab.fa-facebook-f.fa-icon
+                p.button-text  facebook
+            button.btn.btn-outline-dark.login-button.github-button#github-button(type='submit', onclick='blur()') 
+                i.fab.fa-github.fa-icon
+                p.button-text  Github
+        div.login-header#login-header
+            h1#login-header-text continue with
+        div.blurbox#blurbox
+            div.close-button
+                i.far.fa-times-circle
+            div.username-box
+                form(action='/login' method='POST')
+                    div.form-group
+                        p.form-label.user-label Username
+                        input.form-control.form-input(type='text' id='username' placeholder='username' name='username')
+                        p.error-msg.user-error username already exists
+                    div.form-group
+                        p.form-label.pass-label Password
+                        input.form-control.form-input(type='password' id='password' placeholder='password' name='password')
+                        input.form-control.form-input(type='password' id='password-confirm' placeholder='confirm password' name='reenter-password')
+                        p.error-msg.password-error incorrect username or password
+                    div.form-group
+                        p.form-label.email-label Email
+                        input.form-control.form-input(type='email', id='email', placeholder='email', name='email')
+                        input.form-control.form-input(type='email', id='email-confirm', placeholder='confirm email', name='reenter-email')
+                        p.error-msg.email-error emails don't match
+                    button.btn.btn-primary.user-login-btn(type='submit') Log In
+                    button.btn.btn-outline-success.user-register-btn(type='button') Sign up
+                    button.btn.btn-outline-danger.user-cancel-btn(type='button') Cancel
+        div.footer-container#footer-container
+            div.credit-footer
+                p Photo by 
+                    a(id='credit-link', target='_blank', href='https://unsplash.com/@omgitsyeshi') Yeshi Kangrang
+            div.dev-footer
+                p Created by 
+                    a(id='footer-link', target='_blank', href='https://github.com/jpriggs') Jason Riggs

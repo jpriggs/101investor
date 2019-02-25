@@ -74,3 +74,12 @@ bin/
 
 # font folder
 /public/fonts
+
+# image folder
+/public/images
+
+# texture folder
+/public/textures
+
+# audio folder
+/public/audio
